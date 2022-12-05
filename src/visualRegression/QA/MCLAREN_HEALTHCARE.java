@@ -23,7 +23,7 @@ public class MCLAREN_HEALTHCARE {
 		eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
 		driver.manage().timeouts().pageLoadTimeout(75, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "MCLAREN HEALTH CARE CORP", "site ID = atzotp6vrhjlw");
+			eyes.open(driver, "MCLAREN HEALTH CARE CORP [4.0.84]", "[4.0.84] site ID = atzotp6vrhjlw");
 			//Master URL
 			//driver.get("https://ns192767.ebscomedical.com");
 			//UAT URL
@@ -31,13 +31,13 @@ public class MCLAREN_HEALTHCARE {
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
-			eyes.checkWindow("MCLAREN Home Page");
+			eyes.checkWindow("UAT [4.0.84] MCLAREN Home Page");
 			WebElement ele;
 			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			ele.click();
 			Thread.sleep(3000);
 			// 2nd checkpoint
-			eyes.checkWindow("MCLAREN Last Page check");
+			eyes.checkWindow("UAT [4.0.84] Last Page check");
 			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).sendKeys("Equatorial Guinea.");
 			Thread.sleep(5000);
 			JavascriptExecutor jsearchPubMed = (JavascriptExecutor) driver;
@@ -48,28 +48,35 @@ public class MCLAREN_HEALTHCARE {
 			executor.executeScript("arguments[0].click();", clickfunction);
 			Thread.sleep(15000);
 			// 3rd checkpoint
-			eyes.checkWindow("Search Equatorial Guinea Result check under Search All");
+			eyes.checkWindow("UAT [4.0.84] - Search Equatorial Guinea Result check under Search All");
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,1000)");
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[contains(text(),'See 667 more')]")).click();
+			driver.findElement(By.xpath("//a[contains(text(),'See 684 more')]")).click();
 			Thread.sleep(5000);
+			// UAT
+			driver.findElement(By.xpath("//button[@aria-label='Dismiss alert']")).click();
+			Thread.sleep(1000);
 			// 4th checkpoint
-			eyes.checkWindow("check PubMed Results page for Equatorial article");
-			WebElement eleYellowLast;
-			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
-			executor.executeScript("arguments[0].click();", eleYellowLast);
-			Thread.sleep(4000);
+			eyes.checkWindow("UAT [4.0.84] - check PubMed Results page for Equatorial article");
+//			WebElement eleYellowLast;
+//			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
+//			executor.executeScript("arguments[0].click();", eleYellowLast);
+//			Thread.sleep(4000);
 			// 5th checkpoint
-			eyes.checkWindow("check Equatorial article PubMed Results Last page");
-			driver.findElement(By.xpath("//a[contains(text(),'Subconjunctival loiasis.')]")).click();
+			//eyes.checkWindow("check Equatorial article PubMed Results Last page");
+			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
+			Thread.sleep(2000);
+			//5th
+			eyes.checkWindow("UAT [4.0.84] - check Grid View mode");
+			driver.findElement(By.xpath("//a[contains(text(),'Equatorial Guinea.')]")).click();
 			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(tabs2.get(1));
 			Thread.sleep(5000);
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
 			// 6th checkpoint
-			eyes.checkWindow("Window handler page for Subconjunctival article");
+			eyes.checkWindow("UAT [4.0.84] - Window handler page for Equatorial article");
 			driver.switchTo().window(tabs2.get(0));
 			Thread.sleep(5000);
 			WebElement Subele;
@@ -77,16 +84,12 @@ public class MCLAREN_HEALTHCARE {
 			Subele.click();
 			Thread.sleep(4000);
 			// 7th checkpoint
-			eyes.checkWindow("check PubMed Results Last page for Equatorial Article");
+			eyes.checkWindow("UAT [4.0.84] - check PubMed Results Last page for Equatorial Article");
 		}
 		finally {
 			driver.quit();
-
 			eyes.abortIfNotClosed();
 		}
-			
-		
-		
 		
 	}
 
