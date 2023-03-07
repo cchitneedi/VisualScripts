@@ -15,11 +15,12 @@ public class Pathways2ResearchPages {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+		//chrantrent@gmail.com
 			Eyes eyes = new Eyes();
-			eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
+			eyes.setApiKey("LZLxPWPBvOSNYFXKIUS8o7cKrgRhQwjWZnMvd104jAtyI110");
 		try {
-			eyes.open(driver, "PATHWAYS2RESEARCH-DESKTOP-VIEW", "PATHWAYS VERSION-[4.0.84]");
+			eyes.open(driver, "PATHWAYS2RESEARCH [DESKTOP VIEW] 4.0.88", "PATHWAYS VERSION-[4.0.89b]");
 			//driver.get("https://www.pathways2research.com/");
 			driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
 			driver.manage().window().maximize();
@@ -35,77 +36,76 @@ public class Pathways2ResearchPages {
 			driver.findElement(By.cssSelector("#edit-submit")).click();
 			Thread.sleep(3000);
 			//1st
-			eyes.checkWindow("UAT SITE HOME PAGE 4.0.84[DESKTOP]");
+			eyes.checkWindow("UAT SITE HOME PAGE 4.0.89b");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//2nd
-			eyes.checkWindow("UAT SITE HOME PAGE LIGHT MODE 4.0.84[DESKTOP]");
+			eyes.checkWindow("UAT SITE HOME PAGE LIGHT MODE 4.0.89b");
 			driver.findElement(By.xpath("//a[contains(text(),'Business & Economics')]")).click();
 			Thread.sleep(5000);
 			//3rd
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Business Topic PAGE");
+			eyes.checkWindow("UAT [4.0.89b] Business Topic PAGE");
 			driver.findElement(By.xpath("//span[contains(text(),'A Review of Software Tools Used in Research')]")).click();
 			Thread.sleep(2000);
 			//4th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Business Article PAGE mode1");
+			eyes.checkWindow("UAT [4.0.89b] Business Article PAGE mode1");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//5th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Business Topic PAGE mode2");
+			eyes.checkWindow("UAT [4.0.89b] Business Topic PAGE mode2");
 			driver.findElement(By.xpath("(//a[contains(text(),'Pathways to Research')])[2]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Education')]")).click();
 			Thread.sleep(5000);
 			//6th
-			eyes.checkWindow("UAT SITE [4.0.84] [DESKTOP] Education Topic PAGE");
+			eyes.checkWindow("UAT [4.0.89b] Education Topic PAGE");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//7th
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Education Topic PAGE mode2");
+			eyes.checkWindow("UAT SITE [4.0.89b] Education Topic PAGE mode2");
 			driver.findElement(By.xpath("//span[contains(text(),'A Primer on Standards-Based Grading')]")).click();
 			Thread.sleep(2000);
 			//8th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Education Article PAGE");
+			eyes.checkWindow("UAT [4.0.89b] Education Article PAGE");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//9th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Education Article PAGE mode2");
+			eyes.checkWindow("UAT [4.0.89b] Education Article PAGE mode2");
 			driver.findElement(By.xpath("(//a[contains(text(),'Pathways to Research')])[2]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Sustainability')]")).click();
 			Thread.sleep(5000);
 			//10th
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Sustainability Topic PAGE");
+			eyes.checkWindow("UAT [4.0.89b] Sustainability Topic PAGE");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//11th
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Sustainability Topic PAGE mode2");
+			eyes.checkWindow("UAT [4.0.89b] Sustainability Topic PAGE mode2");
 			driver.findElement(By.xpath("//span[contains(text(),'Acting Sustainably: Public and Private Environmental Behaviors')]")).click();
 			Thread.sleep(2000);
 			//12th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Sustainability Article PAGE");
+			eyes.checkWindow("UAT [4.0.89b] Sustainability Article PAGE");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//13th
 			eyes.setForceFullPageScreenshot(true);
 			eyes.setHideScrollbars(true);
-			eyes.checkWindow("UAT SITE [4.0.84][DESKTOP] Sustainability Article PAGE mode2");
-			
+			eyes.checkWindow("UAT [4.0.89b] Sustainability Article PAGE mode2");
 			
 		}
 		 finally {
 				driver.quit();
-		eyes.abortIfNotClosed();
+				eyes.abortIfNotClosed();
 			}
 	}
 

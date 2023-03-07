@@ -14,16 +14,16 @@ import com.applitools.eyes.selenium.Eyes;
 public class SOUTHPORTHOSPITALTRUST {
 
 	public static void main(String[] args) throws InterruptedException {
-
-		
+		// TODO Auto-generated method stub
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		//Eyes eyes = new Eyes();
-		//eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
-		driver.manage().timeouts().pageLoadTimeout(75, TimeUnit.SECONDS);
-	try {
-			//eyes.open(driver, "SOUTHPORT & ORMSKIRK HOSPITAL NHS TRUST", "Site ID - mdwpeq5ohnsks");
+		//charantrent
+		Eyes eyes = new Eyes();
+		eyes.setApiKey("LZLxPWPBvOSNYFXKIUS8o7cKrgRhQwjWZnMvd104jAtyI110");
+		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+		try {
+			eyes.open(driver, "SOUTHPORT-[4.0.85a]", "mdwpeq5ohnsks-[4.0.85a]");
 			//Master URL
 			//driver.get("https://ns011037.ebscomedical.com/");
 			//UAT URL
@@ -31,59 +31,50 @@ public class SOUTHPORTHOSPITALTRUST {
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
-			//eyes.checkWindow("SOUTHPORT & ORMSKIRK HOSPITAL NHS TRUST Home Page");
+			eyes.checkWindow("UAT Home Page 4.0.85a");
 			WebElement ele;
 			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			ele.click();
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			// 2nd checkpoint
-			//eyes.checkWindow("SOUTHPORT & ORMSKIRK HOSPITAL LAST PAGE");
-			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).sendKeys("Equatorial Guinea.");
-			Thread.sleep(10000);
+			eyes.checkWindow("UAT Last Page 4.0.85a");
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).sendKeys("Yellow fever – Gabon");
+			Thread.sleep(1000);
 			WebElement clickfunction;
-			clickfunction = driver.findElement(By.cssSelector("input.submit.expanded.button.js-form-submit.form-submit.focus-input"));
+			clickfunction = driver.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", clickfunction);
-			Thread.sleep(20000);
-			JavascriptExecutor jsearchPubMed = (JavascriptExecutor) driver;
-			jsearchPubMed.executeScript("window.scrollBy(0,2000)");
-			// 3rd checkpoint
-			//eyes.checkWindow("Search SOUTHPORT & ORMSKIRK HOSPITAL Equatorial Article Result");
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1000)");
 			Thread.sleep(5000);
-			driver.findElement(By.xpath("//a[contains(text(),'See 667 more')]")).click();
+			// 3rd checkpoint
+			eyes.checkWindow("UAT Search Yellow Fever Result Page 4.0.85a");
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,2000)");
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//a[contains(text(),'See 19 more')]")).click();
 			Thread.sleep(5000);
 			// 4th checkpoint
-			//eyes.checkWindow("check/open SOUTHPORT & ORMSKIRK HOSPITAL - PubMed Results page for Equatorial article");
+			eyes.checkWindow("UAT Pubmed Results page 4.0.85a");
+			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
+			Thread.sleep(2000);
+			//5th
+			eyes.checkWindow("UAT Pubmed Results Grid View 4.0.85a");
+			driver.findElement(By.xpath("//a[contains(text(),'Equatorial Guinea.')]")).click();
+			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tabs2.get(1));
+			Thread.sleep(3000);
+			eyes.checkWindow("UAT window handler page for Equatorial article 4.0.85a");
+			driver.switchTo().window(tabs2.get(0));
 			WebElement eleYellowLast;
 			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			executor.executeScript("arguments[0].click();", eleYellowLast);
 			Thread.sleep(4000);
-			// 5th checkpoint
-			//eyes.checkWindow("check SOUTHPORT & ORMSKIRK HOSPITAL Equatorial article PubMed Results in Last page");
-			driver.findElement(By.xpath("//a[contains(text(),'Subconjunctival loiasis.')]")).click();
-			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs2.get(1));
-			Thread.sleep(5000);
-			//eyes.setForceFullPageScreenshot(true);
-			//eyes.setHideScrollbars(true);
 			// 6th checkpoint
-			//eyes.checkWindow("Switch Window handler page for SOUTHPORT & ORMSKIRK HOSPITAL - Subconjunctival article");
-			driver.switchTo().window(tabs2.get(0));
-			Thread.sleep(5000);
-			WebElement Subele;
-			Subele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
-			Subele.click();
-			Thread.sleep(4000);
-			// 7th checkpoint
-			//eyes.checkWindow("check PARKLAND - PubMed Results Last page for Equatorial Topic");
-	}
-	finally {
-		driver.quit();
-
-		//eyes.abortIfNotClosed();
-	}
+			eyes.checkWindow("UAT Pubmed Results Last page 4.0.85a");
+		}
+		finally {
+			driver.quit();
+			eyes.abortIfNotClosed();
+		}
 	}
 
 }

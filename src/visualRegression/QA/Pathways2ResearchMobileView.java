@@ -19,9 +19,9 @@ public class Pathways2ResearchMobileView {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().pageLoadTimeout(80, TimeUnit.SECONDS);
 		Eyes eyes = new Eyes();
-		eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
+		eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
 		try {
-			eyes.open(driver, "Pathways MOBILE VIEW -[4.0.84]", "400 X 630-[4.0.84]");
+			eyes.open(driver, "Pathways MOBILE-VIEW -[4.0.85e]", "400 X 630-[4.0.85e]");
 			//driver.get("https://www.pathways2research.com/");
 			driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
 			
@@ -49,54 +49,54 @@ public class Pathways2ResearchMobileView {
 			driver.findElement(By.cssSelector("#edit-submit")).click();
 			Thread.sleep(3000);
 			//1st
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-1");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-1");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Business & Economics')]")).click();
 			Thread.sleep(5000);
 			//2nd
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-2");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-2");
 			driver.findElement(By.xpath("//span[contains(text(),'A Review of Software Tools Used in Research')]")).click();
 			Thread.sleep(2000);
 			//3rd
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-3");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-3");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//4th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-4");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-4");
 			driver.findElement(By.xpath("(//img[@class='default-logo'])[1]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Education')]")).click();
 			Thread.sleep(5000);
 			//5th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-5");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-5");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//6th
-			eyes.checkWindow("MASTER 400 X 630 - 4.0.84-6");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-6");
 			driver.findElement(By.xpath("//span[contains(text(),'A Primer on Standards-Based Grading')]")).click();
 			Thread.sleep(2000);
 			//7th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-7");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-7");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//8th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-8");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-8");
 			driver.findElement(By.xpath("(//img[@class='default-logo'])[1]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Sustainability')]")).click();
 			Thread.sleep(5000);
 			//9th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-9");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-9");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//span[contains(text(),'Acting Sustainably: Public and Private Environmental Behaviors')]")).click();
 			Thread.sleep(2000);
 			//10th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-10");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-10");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			//11th
-			eyes.checkWindow("UAT 400 X 630 - 4.0.84-11");
+			eyes.checkWindow("UAT 400 X 630 - 4.0.85e-11");
 		} finally {
 			driver.quit();
 			eyes.abortIfNotClosed();

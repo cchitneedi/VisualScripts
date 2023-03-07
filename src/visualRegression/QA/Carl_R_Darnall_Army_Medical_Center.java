@@ -14,8 +14,9 @@ public class Carl_R_Darnall_Army_Medical_Center {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		//cchitneedi@nes.co.in
 		// Eyes eyes = new Eyes();
-		// eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
+		// eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
 		driver.manage().timeouts().pageLoadTimeout(75, TimeUnit.SECONDS);
 		try {
 			// eyes.open(driver, "Carl R Darnall Army Medical Center", "Site ID -

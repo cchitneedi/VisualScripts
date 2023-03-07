@@ -17,12 +17,13 @@ public class HBMagruderMemorial {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		//cchitneedi@nes.co.in
 		Eyes eyes = new Eyes();
-		eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
+		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 		try {
 			
-			eyes.open(driver, "H B MAGRUDER MEMORIAL", "MAGRUDER VR TEST");
+			eyes.open(driver, "H B MAGRUDER MEMORIAL-4.0.89a", "[4.0.89a]-MAGRUDER VR TEST");
 			//Master URL
 			//driver.get("https://ns006371.ebscomedical.com");
 			//UAT URL
@@ -30,55 +31,55 @@ public class HBMagruderMemorial {
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
-			eyes.checkWindow("Home Page");
+			eyes.checkWindow("UAT Site Home Page [4.0.89a]");
+			
 			WebElement ele;
 			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			ele.click();
 			Thread.sleep(3000);
 			// 2nd checkpoint
-			eyes.checkWindow("Last Page check");
-			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).sendKeys("Equatorial Guinea.");
-			Thread.sleep(2000);
+			eyes.checkWindow("UAT Last Page [4.0.89a]");
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
+					.sendKeys("Yellow fever – Gabon");
+			Thread.sleep(1000);
 			WebElement clickfunction;
-			clickfunction = driver.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
+			clickfunction = driver
+					.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", clickfunction);
-			Thread.sleep(15000);
-			// 3rd checkpoint
-			eyes.checkWindow("Search Equatorial Guinea Result check");
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1000)");
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[contains(text(),'See 667 more')]")).click();
 			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("UAT Search Yellow Fever Result Page 4.0.89a");
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,2000)");
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//a[contains(text(),'See 19 more')]")).click();
+			Thread.sleep(6000);
 			// 4th checkpoint
-			eyes.checkWindow("check Pubmed Results page");
+			eyes.checkWindow("UAT Pubmed Results page [4.0.89a]");
+			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
+			Thread.sleep(2000);
+			// 5th
+			eyes.checkWindow("UAT Grid View Results Page [4.0.89a]");
+
+			driver.findElement(By.xpath("//a[contains(text(),'Equatorial Guinea.')]")).click();
+			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tabs2.get(1));
+			Thread.sleep(3000);
+			// 6th checkpoint
+			eyes.checkWindow("UAT Equatorial Results Page [4.0.89a]");
+			driver.switchTo().window(tabs2.get(0));
+			Thread.sleep(3000);
 			WebElement eleYellowLast;
 			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			executor.executeScript("arguments[0].click();", eleYellowLast);
 			Thread.sleep(4000);
-			// 5th checkpoint
-			eyes.checkWindow("check Pubmed Results Last page");
-			driver.findElement(By.xpath("//a[contains(text(),'Subconjunctival loiasis.')]")).click();
-			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs2.get(1));
-			Thread.sleep(3000);
-			eyes.setForceFullPageScreenshot(true);
-			eyes.setHideScrollbars(true);
-			// 6th checkpoint
-			eyes.checkWindow("check window handler page for Subconjunctival article");
-			driver.switchTo().window(tabs2.get(0));
-			Thread.sleep(3000);
-			WebElement Subele;
-			Subele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
-			Subele.click();
-			Thread.sleep(3000);
-			// 7th checkpoint
-			eyes.checkWindow("check Pubmed Results Last page error");
+			// 7th
+			eyes.checkWindow("UAT Last Results Page [4.0.89a]");	
+					
 		}
 		finally {
 			driver.quit();
-
 			eyes.abortIfNotClosed();
 		}
 		
