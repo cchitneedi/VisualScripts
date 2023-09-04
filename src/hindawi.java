@@ -5,18 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class hindawi {
 
 	public static void main(String[] args) throws InterruptedException {
 
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.hindawi.com/");
 		driver.findElement(By.linkText("Journals")).click();
-		List<WebElement> journals = driver.findElements(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]"
-				+ "/main[1]/div[2]/div[2]/div[3]/section[2]/div[1]/a['+i+']/div[1]/h3[1]"));
+		List<WebElement> journals = driver.findElements(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/main[1]/div[2]/div[2]/div[3]/section[2]/div[1]/a['+i+']/div[1]/h3[1]"));
 		System.out.println(journals.size());
 		driver.findElement(By.xpath("//button[contains(text(),'B')]")).click();
 		

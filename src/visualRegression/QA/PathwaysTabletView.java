@@ -10,20 +10,21 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 import com.applitools.eyes.selenium.Eyes;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class PathwaysTabletView {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.edge.driver",
-				"C:\\Users\\cchitneedi\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		//cchitneedi@ebsco.com
 		Eyes eyes = new Eyes();
-		eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
+		eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
 		try {
-			eyes.open(driver, "TABLET VIEW -[4.0.82b]", "PATHWAYS 640 X 1023 -[4.0.82b]");
-			//driver.get("https://www.pathways2research.com/");
-			driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
+			eyes.open(driver, "TABLET VIEW -[4.0.93.2a]", "PATHWAYS 640 X 1023 -[4.0.93.2a]");
+			driver.get("https://www.pathways2research.com/");
+			//driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
 			// Default size
 			Dimension currentDimension = driver.manage().window().getSize();
 			int height = currentDimension.getHeight();
@@ -47,58 +48,58 @@ public class PathwaysTabletView {
 			driver.findElement(By.cssSelector("#edit-submit")).click();
 			Thread.sleep(3000);
 			//1st
-			eyes.checkWindow("UAT SITE HOME PAGE 4.0.82b");
+			eyes.checkWindow("UAT SITE HOME PAGE 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//2nd
-			eyes.checkWindow("UAT SITE HOME PAGE 4.0.82b");
+			eyes.checkWindow("UAT SITE HOME PAGE 4.0.93.2a");
 			driver.findElement(By.xpath("//a[contains(text(),'Business & Economics')]")).click();
 			Thread.sleep(5000);
 			//3rd
-			eyes.checkWindow("UAT SITE Sustainability Tablet View 4.0.82b");
+			eyes.checkWindow("UAT SITE Sustainability Tablet View 4.0.93.2a");
 			driver.findElement(By.xpath("//span[contains(text(),'A Review of Software Tools Used in Research')]")).click();
 			Thread.sleep(2000);
 			//4th
-			eyes.checkWindow("UAT SITE B&E Article Tablet View mode 4.0.82b");
+			eyes.checkWindow("UAT SITE B&E Article Tablet View mode 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//5th
-			eyes.checkWindow("UAT SITE B&E Article Tablet View mode2 4.0.82b");
+			eyes.checkWindow("UAT SITE B&E Article Tablet View mode2 4.0.93.2a");
 			driver.findElement(By.xpath("(//img[@class='default-logo'])[1]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Education')]")).click();
 			Thread.sleep(5000);
 			//6th
-			eyes.checkWindow("UAT SITE Education Tablet View mode 4.0.82b");
+			eyes.checkWindow("UAT SITE Education Tablet View mode 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//7th
-			eyes.checkWindow("UAT SITE Education Tablet View mode2 4.0.82b");
+			eyes.checkWindow("UAT SITE Education Tablet View mode2 4.0.93.2a");
 			driver.findElement(By.xpath("//span[contains(text(),'A Primer on Standards-Based Grading')]")).click();
 			Thread.sleep(2000);
 			//8th
-			eyes.checkWindow("UAT SITE Education Article Tablet View mode 4.0.82b");
+			eyes.checkWindow("UAT SITE Education Article Tablet View mode 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//9th
-			eyes.checkWindow("UAT SITE Education Article Tablet View mode2 4.0.82b");
+			eyes.checkWindow("UAT SITE Education Article Tablet View mode2 4.0.93.2a");
 			driver.findElement(By.xpath("(//img[@class='default-logo'])[1]")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Sustainability')]")).click();
 			Thread.sleep(5000);
 			//10th
-			eyes.checkWindow("UAT SITE Sustainability Tablet View mode 4.0.82b");
+			eyes.checkWindow("UAT SITE Sustainability Tablet View mode 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			Thread.sleep(2000);
 			//11th
-			eyes.checkWindow("UAT SITE Sustainability Tablet View mode2 4.0.82b");
+			eyes.checkWindow("UAT SITE Sustainability Tablet View mode2 4.0.93.2a");
 			driver.findElement(By.xpath("//span[contains(text(),'Acting Sustainably: Public and Private Environmental Behaviors')]")).click();
 			Thread.sleep(2000);
 			//12th
-			eyes.checkWindow("UAT SITE Sustainability Article Tablet View mode 4.0.82b");
+			eyes.checkWindow("UAT SITE Sustainability Article Tablet View mode 4.0.93.2a");
 			driver.findElement(By.id("toggle-light-dark")).click();
 			//13th
-			eyes.checkWindow("UAT SITE Sustainability Article Tablet View mode2- 4.0.82b");
+			eyes.checkWindow("UAT SITE Sustainability Article Tablet View mode2- 4.0.93.2a");
 		} finally {
 			driver.quit();
 			eyes.abortIfNotClosed();

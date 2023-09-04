@@ -8,76 +8,164 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.applitools.eyes.selenium.Eyes;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class MCLAREN_HEALTHCARE {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		Eyes eyes = new Eyes();
-		eyes.setApiKey("UFnibMBf5106107SunPp98oA3nC7WYox3qiX68oZQsVMdDdc110");
-		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+		WebDriverManager.edgedriver().setup();
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		 Eyes eyes = new Eyes();
+		eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
+		driver.manage().timeouts().pageLoadTimeout(160, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "MCLAREN HEALTH CARE - [4.0.85]", "[4.0.85] - atzotp6vrhjlw");
-			//Master URL
+			eyes.open(driver, "MCLAREN_HEALTHCARE 4.0.102c", "4.0.102c-MCLAREN");
+			// Master URL
 			//driver.get("https://ns192767.ebscomedical.com");
-			//UAT URL
+			// -UAT-- URL
 			driver.get("https://uat-nvcvooy-atzotp6vrhjlw.us-3.platformsh.site/");
 			driver.manage().window().maximize();
-			Thread.sleep(3000);
-			eyes.checkWindow("UAT Home Page 4.0.85");
-			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[5]/div[1]/div[2]/div[1]/main[1]/div[1]/div[3]/article[1]/div[1]/div[1]/div[1]/div[2]/nav[1]/ul[1]/li[12]/a[1]/span[2]")).click();
+			Thread.sleep(2000);
+			// 1st checkpoint
+			eyes.checkWindow("-UAT- Home Page 4.0.102c");
+			WebElement ele;
+			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
+			ele.click();
 			Thread.sleep(3000);
 			// 2nd checkpoint
-			eyes.checkWindow("UAT Last Page 4.0.85");
-			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
-					.sendKeys("Yellow fever – Gabon");
-			Thread.sleep(1000);
+			eyes.checkWindow("-UAT- Last Page 4.0.102c");
+
+			// EBSCO
+			driver.findElement(By.xpath("//strong[contains(text(),'EBSCO')]")).click();
+			driver.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-query']"))
+					.sendKeys("Medicine");
+			Thread.sleep(2000);
+
 			WebElement clickfunction;
 			clickfunction = driver
-					.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
+					.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-actions-submit']"));
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", clickfunction);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			eyes.checkWindow("UAT Search Yellow Fever Result Page 4.0.85");
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,2000)");
+			 eyes.checkWindow("-UAT- Site EBSCO result Page [4.0.102c]");
+
+			// CINAHL
+			driver.findElement(By.xpath("//strong[contains(text(),'CINAHL')]")).click();
+			WebElement clickfunction2;
+			clickfunction2 = driver.findElement(By.xpath(
+					"//input[@id='edit-search-form-stacks-external-catalogs-custommyhealth-alberta-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor2 = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", clickfunction2);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT-- Site CINAHL result Page [4.0.102c]");
+
+			// MEDLINE
+			driver.findElement(By.xpath("//strong[contains(text(),'MEDLINE')]")).click();
+			WebElement clickfunction3;
+			clickfunction = driver.findElement(By.xpath(
+					"//input[@id='edit-search-form-stacks-external-catalogs-customgoogle-scholar-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor3 = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", clickfunction);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			 eyes.checkWindow("-UAT- Site MEDLINE result Page [4.0.102c]");
+
+			// Health Business Elite
+			driver.findElement(By.xpath("//strong[contains(text(),'Health Business Elite')]")).click();
+			WebElement clickfunction4;
+			clickfunction4 = driver.findElement(By.xpath(
+					"//input[@id='edit-search-form-stacks-external-catalogs-customhealth-business-elite-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor4 = (JavascriptExecutor) driver;
+			executor4.executeScript("arguments[0].click();", clickfunction4);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Site Health Business Elite result Page [4.0.102c]");
+
+			// JOURNALS
+			driver.findElement(By.xpath("//strong[contains(text(),'Journals')]")).click();
+			WebElement clickfunctionJ;
+			clickfunctionJ = driver.findElement(
+					By.xpath("//input[@id='edit-search-form-publicationiq-search-bar-container-actions-submit']"));
+			JavascriptExecutor executorJ = (JavascriptExecutor) driver;
+			executorJ.executeScript("arguments[0].click();", clickfunctionJ);
+			Thread.sleep(5000);
+			// 4th checkpoint
+			 eyes.checkWindow("-UAT- Site Journals result Page [4.0.102c]");
+
+			// PubMed
+			driver.findElement(By.xpath("//strong[contains(text(),'PubMed')]")).click();
+			WebElement clickfunctionPM;
+			clickfunctionPM = driver.findElement(
+					By.xpath("//input[@id='edit-search-form-pubmed-search-bar-container-actions-submit']"));
+			JavascriptExecutor executorPM = (JavascriptExecutor) driver;
+			executorPM.executeScript("arguments[0].click();", clickfunctionPM);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Site PubMed result Page [4.0.102c]");
+
+			driver.findElement(By.xpath("//strong[contains(text(),'Search All')]")).click();
+
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).click();
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).clear();
+
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
+					.sendKeys("Equatorial Guinea.");
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[contains(text(),'See 19 more')]")).click();
+			WebElement clickfunction6;
+			clickfunction6 = driver
+					.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
+			JavascriptExecutor executor6 = (JavascriptExecutor) driver;
+			executor6.executeScript("arguments[0].click();", clickfunction6);
+			Thread.sleep(15000);
+			// 3rd checkpoint
+			// eyes.checkWindow("-UAT-- Search Yellow Fever Result Page 4.0.102cd");
+			//JavascriptExecutor js = (JavascriptExecutor) driver;
+			//js.executeScript("window.scrollBy(0,4000)");
+			WebElement gdfgdsf = driver.findElement(By.xpath("//a[contains(text(),'PubMed - 728')]"));
+			gdfgdsf.click();
 			Thread.sleep(6000);
 			// 4th checkpoint
-			eyes.checkWindow("UAT Pubmed Results page 4.0.85");
+			 eyes.checkWindow("-UAT- CINAHL Results page 4.0.102c");
 			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
 			Thread.sleep(2000);
 			// 5th
-			eyes.checkWindow("UAT Grid View Results Page 4.0.85");
+			eyes.checkWindow("-UAT-- Grid View Results Page 4.0.102c");
 
-			driver.findElement(By.xpath("//a[contains(text(),'Equatorial Guinea.')]")).click();
-			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs2.get(1));
-			Thread.sleep(3000);
+//			driver.findElement(By.xpath(
+//					"//body/div[1]/div[2]/div[5]/div[1]/div[2]/div[1]/main[1]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/h2[1]/a[1]"))
+//					.click();
+//			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//			driver.switchTo().window(tabs2.get(1));
+//			Thread.sleep(3000);
 			// 6th checkpoint
-			eyes.checkWindow("UAT Equatorial Results Page 4.0.85");
-			driver.switchTo().window(tabs2.get(0));
-			Thread.sleep(3000);
+			//eyes.checkWindow("-UAT- ARTICLE Results Page 4.0.102c");
+//			driver.navigate().back();
+//
+//			driver.switchTo().window(tabs2.get(0));
+//			Thread.sleep(3000);
+			
 			WebElement eleYellowLast;
 			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			executor.executeScript("arguments[0].click();", eleYellowLast);
 			Thread.sleep(4000);
 			// 7th
-			eyes.checkWindow("UAT Last Results Page 4.0.85");
+			 eyes.checkWindow("-UAT- Last Results Page 4.0.102c");
+		} finally {
+			 driver.quit();
+			 eyes.abortIfNotClosed();
 		}
-		finally {
-			//driver.quit();
-			//eyes.abortIfNotClosed();
-		}
-		
+
 	}
 
 }

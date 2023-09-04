@@ -8,78 +8,131 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import com.applitools.eyes.selenium.Eyes;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BradfordTeachingHospital {
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\cchitneedi\\Downloads\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+
+		WebDriverManager.edgedriver().setup();
+		WebDriver driver = new EdgeDriver();
 		Eyes eyes = new Eyes();
 		eyes.setApiKey("UFnibMBf5106107SunPp98oA3nC7WYox3qiX68oZQsVMdDdc110");
-		driver.manage().timeouts().pageLoadTimeout(80, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "BRADFORD TEACHING HOSPITAL[4.0.85f]", "4.0.85f-BRADFORD");
-			//Master URL
-			//driver.get("https://ns123391.ebscomedical.com");
-			//UAT URL
+			eyes.open(driver, "BRADFORD TEACHING HOSPITAL 4.0.101e", "4.0.101e-BRADFORD");
+			// -UAT- URL
+			//driver.get("https://ns123391.ebscomedical.com/");
+			// -UAT- URL
 			driver.get("https://uat-nvcvooy-pshhvxatqcsjq.uk-1.platformsh.site/");
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
-			eyes.checkWindow("UAT Home Page 4.0.85f");
+			eyes.checkWindow("-UAT- SITE home page [4.0.101e]");
 			WebElement ele;
 			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			ele.click();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			// 2nd checkpoint
-			eyes.checkWindow("UAT Last Page 4.0.85f");
-			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
-					.sendKeys("Yellow fever – Gabon");
-			Thread.sleep(1000);
+			eyes.checkWindow("-UAT- SITE LAST HOME page [4.0.101e]");
+
+			// EBSCO Results
+			driver.findElement(By.xpath("//strong[contains(text(),'EBSCO')]")).click();
+			driver.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-query']"))
+					.sendKeys("Medicine");
+			Thread.sleep(2000);
+
 			WebElement clickfunction;
 			clickfunction = driver
-					.findElement(By.cssSelector(".submit.expanded.button.js-form-submit.form-submit.focus-input"));
+					.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-actions-submit']"));
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", clickfunction);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			eyes.checkWindow("UAT Search Yellow Fever Result Page 4.0.85f");
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,2000)");
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[contains(text(),'See 19 more')]")).click();
-			Thread.sleep(6000);
-			// 4th checkpoint
-			eyes.checkWindow("UAT Pubmed Results page 4.0.85f");
+			eyes.checkWindow("--UAT-- Site EBSCO result Page [4.0.101e]");
+			
+			
+			
+			//CINAHL
+			driver.findElement(By.xpath("//strong[contains(text(),'CINAHL')]")).click();
+			WebElement clickfunction2;
+			clickfunction2 = driver.findElement(By.xpath(
+					"//input[@id='edit-search-form-stacks-external-catalogs-custommyhealth-alberta-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor2 = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", clickfunction2);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Site CINAHL result Page [4.0.101e]");
+			
+			
+			//MEDLINE
+			driver.findElement(By.xpath("//strong[contains(text(),'MEDLINE')]")).click();
+			WebElement clickfunction3;
+			clickfunction = driver.findElement(By.xpath(
+					"//input[@id='edit-search-form-stacks-external-catalogs-customgoogle-scholar-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor3 = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", clickfunction);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Site MEDLINE result Page [4.0.101e]");
+
+
+			// PUBMED
+			driver.findElement(By.xpath("//strong[contains(text(),'PubMed')]")).click();
+			Thread.sleep(2000);
+			WebElement clickfunction5;
+			clickfunction5 = driver.findElement(
+					By.xpath("//input[@id='edit-search-form-pubmed-search-bar-container-actions-submit']"));
+			JavascriptExecutor executor5 = (JavascriptExecutor) driver;
+			executor5.executeScript("arguments[0].click();", clickfunction5);
+			Thread.sleep(5000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Site PubMed result Page [4.0.101e]");
+
+			// SEARCH ALL
+			driver.findElement(By.xpath("//strong[contains(text(),'Search All')]")).click();
+
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).click();
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).clear();
+
+			// 2nd checkpoint
+			eyes.checkWindow("-UAT- 4.0.101e - Page-2");
+			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
+					.sendKeys("Medicine");
+			Thread.sleep(10000);
+			WebElement clickfunction7;
+			clickfunction7 = driver
+					.findElement(By.cssSelector("#edit-search-form-bento-search-bar-container-actions-submit"));
+			JavascriptExecutor js22 = (JavascriptExecutor) driver;
+			js22.executeScript("arguments[0].click();", clickfunction7);
+			Thread.sleep(19000);
+			// 3rd checkpoint
+			eyes.checkWindow("-UAT- Search All results 4.0.101e - Page-3");
+			//9,993 - UAT
+			driver.findElement(By.xpath("//a[contains(text(),'Journals - 9,993')]")).click();
+			Thread.sleep(9000);
+			// 4th
+			eyes.checkWindow("-UAT- Journals Results 4.0.101e - Page-4");
 			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
 			Thread.sleep(2000);
 			// 5th
-			eyes.checkWindow("MASTER Grid View Results Page 4.0.85f");
-
-			driver.findElement(By.xpath("//a[contains(text(),'Equatorial Guinea.')]")).click();
-			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs2.get(1));
-			Thread.sleep(3000);
-			// 6th checkpoint
-			eyes.checkWindow("UAT Equatorial Results Page 4.0.85f");
-			driver.switchTo().window(tabs2.get(0));
-			Thread.sleep(3000);
+			eyes.checkWindow("-UAT- 4.0.101e - Page-5");
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			js2.executeScript("window.scrollBy(0,1000)");
 			WebElement eleYellowLast;
 			eleYellowLast = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
-			executor.executeScript("arguments[0].click();", eleYellowLast);
-			Thread.sleep(4000);
-			// 7th
-			eyes.checkWindow("UAT Last Results Page 4.0.85f");
-		}
-		finally {
+			JavascriptExecutor js3 = (JavascriptExecutor) driver;
+			js3.executeScript("arguments[0].click();", eleYellowLast);
+			// 6th
+			eyes.checkWindow("-UAT- 4.0.101e - Page-6");
+		} finally {
 			driver.quit();
 			eyes.abortIfNotClosed();
 		}
-		
 
 	}
 
