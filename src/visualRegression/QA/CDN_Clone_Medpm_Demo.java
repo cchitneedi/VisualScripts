@@ -24,10 +24,10 @@ public class CDN_Clone_Medpm_Demo {
 		WebDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
 		Eyes eyes = new Eyes();
-		eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
+		eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
 		driver.manage().timeouts().pageLoadTimeout(150, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "CDN Clone Medpm 4.0.102c", "CDN-4.0.102c");
+			eyes.open(driver, "CDN Clone Medpm 4.0.102MASTER", "CDN-4.0.102MASTER");
 			//driver.get("https://medpmdemo.stacksplatform.com");
 			driver.get("https://uat-nvcvooy-2jhh744dtwbgi.us-3.platformsh.site/");
 			Thread.sleep(2000);

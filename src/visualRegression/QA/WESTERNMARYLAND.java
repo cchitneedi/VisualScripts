@@ -28,14 +28,14 @@ public class WESTERNMARYLAND {
 
 			eyes.open(driver, "WESTERN MARYLAND - [4.0.94b]", "MARYLAND-[4.0.94b]");
 
-			//driver.get("https://wmarylandhldemo.stacksplatform.com");
-			driver.get("https://uat-nvcvooy-tw3l7x4nsoyhw.us-4.platformsh.site");
+			driver.get("https://wmarylandhldemo.stacksplatform.com");
+			//driver.get("https://uat-nvcvooy-tw3l7x4nsoyhw.us-4.platformsh.site");
 
-			eyes.checkWindow("UAT HOME PAGE Page 4.0.94b");
+			eyes.checkWindow("MASTER HOME PAGE Page 4.0.94b");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[contains(text(),'Stress Management Collection')]")).click();
 
-			eyes.checkWindow("UAT Stress Management Collection 4.0.94b");
+			eyes.checkWindow("MASTER Stress Management Collection 4.0.94b");
 
 			driver.findElement(By.xpath("//input[@id='edit-search-form-eit-search-bar-container-query']"))
 					.sendKeys("Medicine");

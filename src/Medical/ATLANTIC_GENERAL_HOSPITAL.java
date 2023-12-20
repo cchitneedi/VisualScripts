@@ -1,37 +1,35 @@
-package visualRegression.QA;
+package Medical;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import com.applitools.eyes.selenium.Eyes;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class PARKLANDHEALTH {
+public class ATLANTIC_GENERAL_HOSPITAL {
 
 	public static void main(String[] args) throws InterruptedException {
-
-//		WebDriverManager.chromedriver().setup();
-//		WebDriver driver = new ChromeDriver();
+		// TODO Auto-generated method stub
+		
+		
 		WebDriverManager.edgedriver().setup();
 		WebDriver driver = new EdgeDriver();
 		Eyes eyes = new Eyes();
 		//chrantrent@gmail.com
-		eyes.setApiKey("LZLxPWPBvOSNYFXKIUS8o7cKrgRhQwjWZnMvd104jAtyI110");
+		eyes.setApiKey("LZLxPWPBvOSNYFXKIUS8o7cKrgRhQwjWZnMvd104jAtyI110"); 
 		driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "PARKLAND HEALTH 4.0.1.109b", "4.0.1.109b-PARKLAND");
-			// -UAT- URL
-			//driver.get("https://s6913921.ebscomedical.com");
-			// -UAT- URL
-			driver.get("https://uat-nvcvooy-j2tj7rp6fujgy.us-3.platformsh.site/");
+			eyes.open(driver, "ATLANTIC GENERAL HOSPITAL", "ATLANTIC - 4.0.1.109b");
+			// -UAT--- URL
+			//driver.get("https://ns005363.ebscomedical.com/");
+			// -UAT--- URL
+			driver.get("https://uat-nvcvooy-4kw2vslzknv6m.us-3.platformsh.site/");
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
@@ -43,55 +41,39 @@ public class PARKLANDHEALTH {
 			// 2nd checkpoint
 			eyes.checkWindow("-UAT- SITE LAST HOME page [4.0.1.109b]");
 
-			// EBSCO Results
-			driver.findElement(By.xpath("//strong[contains(text(),'EBSCO')]")).click();
-			driver.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-query']"))
-					.sendKeys("Medicine");
-			Thread.sleep(2000);
 
-			WebElement clickfunction;
-			clickfunction = driver
-					.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-actions-submit']"));
-			JavascriptExecutor executor = (JavascriptExecutor) driver;
-			executor.executeScript("arguments[0].click();", clickfunction);
+			//Nursing eBooks
+			driver.findElement(By.xpath("//strong[contains(text(),'Nursing eBooks')]")).click();
+			
+			driver.findElement(By.xpath("//input[@id='edit-search-form-stacks-external-catalogs-customovid-ds-search-bar-container-query']")).sendKeys("Medicine");
+			
+			WebElement clickfunctionNursing;
+			clickfunctionNursing = driver
+					.findElement(By.xpath("//input[@id='edit-search-form-stacks-external-catalogs-customovid-ds-search-bar-container-actions-submit']"));
+			JavascriptExecutor executorNursing = (JavascriptExecutor) driver;
+			executorNursing.executeScript("arguments[0].click();", clickfunctionNursing);
+			
 			Thread.sleep(5000);
-			// 3rd checkpoint
-			eyes.checkWindow("--UAT-- Site EBSCO result Page [4.0.1.109b]");
-
-			// CINAHL COMPLETE Results
-			driver.findElement(By.xpath("//strong[contains(text(),'CINAHL Complete')]")).click();
-			WebElement clickfunction3;
-			clickfunction3 = driver
-					.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-actions-submit']"));
-			JavascriptExecutor executor3 = (JavascriptExecutor) driver;
-			executor3.executeScript("arguments[0].click();", clickfunction3);
-			Thread.sleep(5000);
-			// 3rd checkpoint
-			eyes.checkWindow("-UAT- Site CINAHL COMPLETE result Page [4.0.1.109b]");
+			// 4th checkpoint
+			eyes.checkWindow("-UAT- Site Nursing eBooks result Page [4.0.1.109b]");
+			
 
 			
-			// Medline Complete Results
-			driver.findElement(By.xpath("//strong[contains(text(),'MEDLINE Complete')]")).click();
-			WebElement clickfunction6;
-			clickfunction6 = driver.findElement(By.xpath(
-					"//input[@id='edit-search-form-stacks-external-catalogs-customgoogle-scholar-search-bar-container-actions-submit']"));
-			JavascriptExecutor executor6 = (JavascriptExecutor) driver;
-			executor6.executeScript("arguments[0].click();", clickfunction6);
-			Thread.sleep(5000);
-			// 3rd checkpoint
-			eyes.checkWindow("-UAT- Site MEDLINE COMPLETE result Page [4.0.1.109b]");
 
-			// Health Business Elite
-			driver.findElement(By.xpath("//strong[contains(text(),'Health Business Elite')]")).click();
-			WebElement clickfunction4;
-			clickfunction4 = driver.findElement(By.xpath(
-					"//input[@id='edit-search-form-stacks-external-catalogs-customhealth-business-elite-search-bar-container-actions-submit']"));
-			JavascriptExecutor executor4 = (JavascriptExecutor) driver;
-			executor4.executeScript("arguments[0].click();", clickfunction4);
+			// JOURNALS
+			driver.findElement(By.xpath("//strong[contains(text(),'Journals')]")).click();
+			WebElement clickfunctionJ;
+			clickfunctionJ = driver.findElement(
+					By.xpath("//input[@id='edit-search-form-publicationiq-search-bar-container-actions-submit']"));
+			JavascriptExecutor executorJ = (JavascriptExecutor) driver;
+			executorJ.executeScript("arguments[0].click();", clickfunctionJ);
 			Thread.sleep(5000);
-			// 3rd checkpoint
-			eyes.checkWindow("-UAT- Site Health Business Elite result Page [4.0.1.109b]");
+			// 4th checkpoint
+			eyes.checkWindow("-UAT- Site Journals result Page [4.0.1.109b]");
 
+			
+			
+			
 			// PUBMED
 			driver.findElement(By.xpath("//strong[contains(text(),'PubMed')]")).click();
 			Thread.sleep(2000);
@@ -104,6 +86,11 @@ public class PARKLANDHEALTH {
 			// 3rd checkpoint
 			eyes.checkWindow("-UAT- Site PubMed result Page [4.0.1.109b]");
 
+			
+			
+			
+			
+			
 			// SEARCH ALL
 			driver.findElement(By.xpath("//strong[contains(text(),'Search All')]")).click();
 
@@ -111,7 +98,7 @@ public class PARKLANDHEALTH {
 			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']")).clear();
 
 			// 2nd checkpoint
-			eyes.checkWindow("-UAT- Page-2");
+			eyes.checkWindow("-UAT- 4.0.1.109b - Page-2");
 			driver.findElement(By.xpath("//input[@id='edit-search-form-bento-search-bar-container-query']"))
 					.sendKeys("Medicine");
 			Thread.sleep(10000);
@@ -125,8 +112,8 @@ public class PARKLANDHEALTH {
 			eyes.checkWindow("-UAT- Search All results 4.0.1.109b - Page-3");
 			WebElement clickfnJournals;
 			clickfnJournals = driver.findElement(By.xpath("//a[contains(text(),'Journals - 10,000')]"));
-				JavascriptExecutor Journalsexe = (JavascriptExecutor) driver;
-				Journalsexe.executeScript("arguments[0].click();", clickfnJournals);
+			JavascriptExecutor Journalsexe = (JavascriptExecutor) driver;
+			Journalsexe.executeScript("arguments[0].click();", clickfnJournals);
 			Thread.sleep(6000);
 			// 4th
 			eyes.checkWindow("-UAT- Journals Results 4.0.1.109b - Page-4");
@@ -146,6 +133,11 @@ public class PARKLANDHEALTH {
 			driver.quit();
 			eyes.abortIfNotClosed();
 		}
+		
+		
+		
+		
+		
 
 	}
 

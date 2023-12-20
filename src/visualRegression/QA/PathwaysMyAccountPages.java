@@ -25,17 +25,17 @@ public class PathwaysMyAccountPages {
 		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
 		
 				Eyes eyes = new Eyes();
-				eyes.setApiKey("UFnibMBf5106107SunPp98oA3nC7WYox3qiX68oZQsVMdDdc110");
+				eyes.setApiKey("wVE71yhGHadxX58P9ieyLRVJlpAXwCJAh100iJHBm6P3M110");
 				try {
-					eyes.open(driver, "PATHWAYS2RESEARCH-DESKTOP VIEW Account", "My Account Pages -[4.0.101b]");
-					//driver.get("https://www.pathways2research.com/");
-					driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
+					eyes.open(driver, "PATHWAYS2RESEARCH-DESKTOP VIEW Account", "My Account Pages -[4.0.103]");
+					driver.get("https://www.pathways2research.com/");
+					//driver.get("https://pathways2research.com.uat-nvcvooy-j43mdydumhk5g.us-4.platformsh.site/");
 					driver.manage().window().maximize();
 					Thread.sleep(1000);
 					driver.findElement(By.cssSelector("#edit-name")).sendKeys("NES_Patron");
 					driver.findElement(By.cssSelector("#edit-pass")).sendKeys("exm9fek5tfu-WMB@hwz");
 					Thread.sleep(1000);
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Login Page");
+					eyes.checkWindow("-MASTER- SITE [4.0.103] Login Page");
 					driver.findElement(By.cssSelector("#edit-submit")).click();
 					Thread.sleep(3000);
 					driver.findElement(By.xpath("//button[@id='mobile-menu-2']")).click();
@@ -46,39 +46,39 @@ public class PathwaysMyAccountPages {
 					
 					Thread.sleep(2000);
 					//1st
-					eyes.checkWindow("-UAT- SITE [4.0.101b] My-Account Page mode1");
+					eyes.checkWindow("-MASTER- SITE [4.0.103] My-Account Page mode1");
 					driver.findElement(By.id("toggle-light-dark")).click();
 					Thread.sleep(2000);
 					//2nd
-					eyes.checkWindow("-UAT- SITE [4.0.101b] My-Account Page mode2");
+					eyes.checkWindow("-MASTER- SITE [4.0.103] My-Account Page mode2");
 					driver.findElement(By.linkText("Your Saved List")).click();
 					Thread.sleep(2000);
 					//3rd
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Saved-List Page mode1");
+					eyes.checkWindow("-MASTER- SITE [4.0.103] Saved-List Page mode1");
 					driver.findElement(By.id("toggle-light-dark")).click();
 					Thread.sleep(2000);
 					//4th
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Saved-List Page mode2");
+					eyes.checkWindow("-MASTER- SITE [4.0.103] Saved-List Page mode2");
 					driver.navigate().back();
 					driver.findElement(By.linkText("Your Saved Searches")).click();
-					Thread.sleep(2000);
-					//5th
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Saved-Searches Page mode1");
-					driver.findElement(By.id("toggle-light-dark")).click();
-					Thread.sleep(2000);
-					//6th
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Saved-Searches Page mode2");
-					driver.navigate().back();
-					Thread.sleep(3000);
-					driver.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-query']")).sendKeys("Solar");
-					driver.findElement(By.xpath("//input[@name='eds-submit']")).click();
-					Thread.sleep(3000);
-					//7th
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Search-Results Page");
-					driver.findElement(By.id("toggle-light-dark")).click();
-					Thread.sleep(1000);
-					//8th
-					eyes.checkWindow("-UAT- SITE [4.0.101b] Search-Results Page mode2");
+//					Thread.sleep(2000);
+//					//5th
+//					eyes.checkWindow("-MASTER- SITE [4.0.103] Saved-Searches Page mode1");
+//					driver.findElement(By.id("toggle-light-dark")).click();
+//					Thread.sleep(2000);
+//					//6th
+//					eyes.checkWindow("-MASTER- SITE [4.0.103] Saved-Searches Page mode2");
+//					driver.navigate().back();
+//					Thread.sleep(3000);
+//					driver.findElement(By.xpath("//input[@id='edit-search-form-eds-search-bar-container-query']")).sendKeys("Solar");
+//					driver.findElement(By.xpath("//input[@name='eds-submit']")).click();
+//					Thread.sleep(3000);
+//					//7th
+//					eyes.checkWindow("-MASTER- SITE [4.0.103] Search-Results Page");
+//					driver.findElement(By.id("toggle-light-dark")).click();
+//					Thread.sleep(1000);
+//					//8th
+//					eyes.checkWindow("-MASTER- SITE [4.0.103] Search-Results Page mode2");
 					
 				}
 				 finally {

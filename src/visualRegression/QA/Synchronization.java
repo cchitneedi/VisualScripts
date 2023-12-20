@@ -23,8 +23,8 @@ public class Synchronization {
 		driver.get("https://www.instagram.com/accounts/login/");
 		
 		//driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
+		//WebDriverWait wait = new WebDriverWait(driver,10);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
 		
 		//driver.findElement(By.xpath("//input[@name='username']")).sendKeys("USERNAME");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("PASSWORD");

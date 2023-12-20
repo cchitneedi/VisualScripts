@@ -25,10 +25,11 @@ public class MCLAREN_HEALTHCARE {
 		WebDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
 		 Eyes eyes = new Eyes();
-		eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
+		//Chitneedi@nes.co.in
+		eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
 		driver.manage().timeouts().pageLoadTimeout(160, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "MCLAREN_HEALTHCARE 4.0.102c", "4.0.102c-MCLAREN");
+			eyes.open(driver, "MCLAREN HEALTHCARE 4.0.105f", "4.0.105f- MCLAREN");
 			// Master URL
 			//driver.get("https://ns192767.ebscomedical.com");
 			// -UAT-- URL
@@ -36,13 +37,13 @@ public class MCLAREN_HEALTHCARE {
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			// 1st checkpoint
-			eyes.checkWindow("-UAT- Home Page 4.0.102c");
+			eyes.checkWindow("-UAT- Home Page 4.0.105f");
 			WebElement ele;
 			ele = driver.findElement(By.xpath("//span[contains(text(),'Last »')]"));
 			ele.click();
 			Thread.sleep(3000);
 			// 2nd checkpoint
-			eyes.checkWindow("-UAT- Last Page 4.0.102c");
+			eyes.checkWindow("-UAT- Last Page 4.0.105f");
 
 			// EBSCO
 			driver.findElement(By.xpath("//strong[contains(text(),'EBSCO')]")).click();
@@ -57,7 +58,7 @@ public class MCLAREN_HEALTHCARE {
 			executor.executeScript("arguments[0].click();", clickfunction);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			 eyes.checkWindow("-UAT- Site EBSCO result Page [4.0.102c]");
+			 eyes.checkWindow("-UAT- Site EBSCO result Page [4.0.105f]");
 
 			// CINAHL
 			driver.findElement(By.xpath("//strong[contains(text(),'CINAHL')]")).click();
@@ -68,7 +69,7 @@ public class MCLAREN_HEALTHCARE {
 			executor.executeScript("arguments[0].click();", clickfunction2);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			eyes.checkWindow("-UAT-- Site CINAHL result Page [4.0.102c]");
+			eyes.checkWindow("-UAT-- Site CINAHL result Page [4.0.105f]");
 
 			// MEDLINE
 			driver.findElement(By.xpath("//strong[contains(text(),'MEDLINE')]")).click();
@@ -79,7 +80,7 @@ public class MCLAREN_HEALTHCARE {
 			executor.executeScript("arguments[0].click();", clickfunction);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			 eyes.checkWindow("-UAT- Site MEDLINE result Page [4.0.102c]");
+			 eyes.checkWindow("-UAT- Site MEDLINE result Page [4.0.105f]");
 
 			// Health Business Elite
 			driver.findElement(By.xpath("//strong[contains(text(),'Health Business Elite')]")).click();
@@ -90,7 +91,7 @@ public class MCLAREN_HEALTHCARE {
 			executor4.executeScript("arguments[0].click();", clickfunction4);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			eyes.checkWindow("-UAT- Site Health Business Elite result Page [4.0.102c]");
+			eyes.checkWindow("-UAT- Site Health Business Elite result Page [4.0.105f]");
 
 			// JOURNALS
 			driver.findElement(By.xpath("//strong[contains(text(),'Journals')]")).click();
@@ -101,7 +102,7 @@ public class MCLAREN_HEALTHCARE {
 			executorJ.executeScript("arguments[0].click();", clickfunctionJ);
 			Thread.sleep(5000);
 			// 4th checkpoint
-			 eyes.checkWindow("-UAT- Site Journals result Page [4.0.102c]");
+			 eyes.checkWindow("-UAT- Site Journals result Page [4.0.105f]");
 
 			// PubMed
 			driver.findElement(By.xpath("//strong[contains(text(),'PubMed')]")).click();
@@ -112,7 +113,7 @@ public class MCLAREN_HEALTHCARE {
 			executorPM.executeScript("arguments[0].click();", clickfunctionPM);
 			Thread.sleep(5000);
 			// 3rd checkpoint
-			eyes.checkWindow("-UAT- Site PubMed result Page [4.0.102c]");
+			eyes.checkWindow("-UAT- Site PubMed result Page [4.0.105f]");
 
 			driver.findElement(By.xpath("//strong[contains(text(),'Search All')]")).click();
 
@@ -129,18 +130,19 @@ public class MCLAREN_HEALTHCARE {
 			executor6.executeScript("arguments[0].click();", clickfunction6);
 			Thread.sleep(15000);
 			// 3rd checkpoint
-			// eyes.checkWindow("-UAT-- Search Yellow Fever Result Page 4.0.102cd");
+			// eyes.checkWindow("-UAT-- Search Yellow Fever Result Page 4.0.105fd");
 			//JavascriptExecutor js = (JavascriptExecutor) driver;
 			//js.executeScript("window.scrollBy(0,4000)");
-			WebElement gdfgdsf = driver.findElement(By.xpath("//a[contains(text(),'PubMed - 728')]"));
+			//UAT PubMed - 25
+			WebElement gdfgdsf = driver.findElement(By.xpath("//a[contains(text(),'PubMed - 735')]"));
 			gdfgdsf.click();
 			Thread.sleep(6000);
 			// 4th checkpoint
-			 eyes.checkWindow("-UAT- CINAHL Results page 4.0.102c");
+			 eyes.checkWindow("-UAT- CINAHL Results page 4.0.105f");
 			driver.findElement(By.xpath("//a[@aria-label='grid view']")).click();
 			Thread.sleep(2000);
 			// 5th
-			eyes.checkWindow("-UAT-- Grid View Results Page 4.0.102c");
+			eyes.checkWindow("-UAT-- Grid View Results Page 4.0.105f");
 
 //			driver.findElement(By.xpath(
 //					"//body/div[1]/div[2]/div[5]/div[1]/div[2]/div[1]/main[1]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/h2[1]/a[1]"))
@@ -149,7 +151,7 @@ public class MCLAREN_HEALTHCARE {
 //			driver.switchTo().window(tabs2.get(1));
 //			Thread.sleep(3000);
 			// 6th checkpoint
-			//eyes.checkWindow("-UAT- ARTICLE Results Page 4.0.102c");
+			//eyes.checkWindow("-UAT- ARTICLE Results Page 4.0.105f");
 //			driver.navigate().back();
 //
 //			driver.switchTo().window(tabs2.get(0));
@@ -160,7 +162,7 @@ public class MCLAREN_HEALTHCARE {
 			executor.executeScript("arguments[0].click();", eleYellowLast);
 			Thread.sleep(4000);
 			// 7th
-			 eyes.checkWindow("-UAT- Last Results Page 4.0.102c");
+			 eyes.checkWindow("-UAT- Last Results Page 4.0.105f");
 		} finally {
 			 driver.quit();
 			 eyes.abortIfNotClosed();

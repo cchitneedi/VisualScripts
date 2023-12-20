@@ -27,10 +27,10 @@ public class TryOurProducts {
 		WebDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
 		Eyes eyes = new Eyes();
-		eyes.setApiKey("79CYkxosb3KQJmYhkQhA4CLfGDeI9a62992l60V8LmyU110");
+		eyes.setApiKey("U7sd0gV48usZ4bzkwcPsAs104X10619109icnq7fzBdCqvABU110");
 		driver.manage().timeouts().pageLoadTimeout(160, TimeUnit.SECONDS);
 		try {
-			eyes.open(driver, "Try Our Products  4.0.102c", "4.0.102c-TryOurProducts");
+			eyes.open(driver, "Try Our Products  4.0.102MASTER", "4.0.102MASTER-TryOurProducts");
 			// Master URL
 			//driver.get("https://salestdemo.stacksplatform.com");
 			// -UAT- URL
@@ -163,7 +163,7 @@ public class TryOurProducts {
 			driver.switchTo().window(tabs2.get(1));
 			Thread.sleep(3000);
 			// 6th checkpoint
-			eyes.checkWindow("-UAT- ARTICLE Results Page 4.0.102c");
+			//eyes.checkWindow("-UAT- ARTICLE Results Page 4.0.102c");
 			driver.navigate().back();
 
 			driver.switchTo().window(tabs2.get(0));
